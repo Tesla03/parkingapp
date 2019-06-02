@@ -1,5 +1,6 @@
 export interface Parking {
-  id: number;
-  selected: boolean;
-  car: string; //tablice
+  id: string;
+  vreme: string;
+  popunjeno: boolean;
+  tablice: string;
 }

@@ -1,0 +1,60 @@
+#tabela {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  flex-wrap: wrap;
+}
+
+#Select,
+#isparkiraj {
+  width: 70px;
+  height: 20px;
+}
+
+#dugmad {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  width: 70px;
+  height: 40px;
+}
+
+#parking {
+  margin-top: 10px;
+}
+
+input {
+  width: 136px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 2%;
+  padding: 0;
+}
+#unos {
+  display: flex;
+  flex-direction: row;
+}
+
+#mesto,
+#tablice {
+  display: flex;
+  flex-direction: column;
+}
+
+#parkiraj {
+  margin-top: 5px;
+  width: 80px;
+  height: 25px;
+}
+
+#prazna-mesta {
+  width: 160px;
+  height: 25px;
+  margin-left: 10px;
+}
+.zauzece {
+  font-style: italic;
+}

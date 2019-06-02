@@ -1,0 +1,33 @@
+{
+    "parkings": [{
+            "id": "1",
+            "popunjeno": false,
+            "tablice": "NI123AS"
+        },
+        {
+            "id": "2",
+            "popunjeno": true,
+            "tablice": "NI234AS"
+        },
+        {
+            "id": "3",
+            "popunjeno": true,
+            "tablice": "NI345AS"
+        },
+        {
+            "id": "4",
+            "popunjeno": false,
+            "tablice": "NI123AP"
+        },
+        {
+            "id": "5",
+            "popunjeno": false,
+            "tablice": "NI234AK"
+        },
+        {
+            "id": "6",
+            "popunjeno": true,
+            "tablice": "NI345AZ"
+        }
+    ]
+}
