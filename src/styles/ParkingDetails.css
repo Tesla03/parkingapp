@@ -1,0 +1,17 @@
+label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+#povratak {
+  background: linear-gradient(to left, #0f2027, #2c5364);
+  background-color: #2dabf9;
+  border-radius: 5px;
+  border: 1px solid #0b0e07;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  width: 150px;
+}

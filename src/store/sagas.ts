@@ -7,7 +7,7 @@ function* fetchParkings() {
   yield put(addParkings(parkings));
 }
 
-// da namapiramo akcije na generatorske funckije sage
+//mapiranje akcija na generatorske funckije sage
 export function* rootSaga() {
   yield all([takeEvery(FETCH_PARKINGS, fetchParkings)]);
 }

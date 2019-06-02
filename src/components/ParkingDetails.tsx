@@ -4,6 +4,7 @@ import { Action } from "redux";
 import { connect } from "react-redux";
 import { Parking } from "../models/Parking";
 import { Redirect } from "react-router-dom";
+import "../styles/ParkingDetails.css";
 
 interface Props {
   selectedParking?: Parking;
@@ -40,15 +41,18 @@ class ParkingDetails extends Component<Props, State> {
     }
     return (
       <div>
-        {console.log(this.props.selectedParking.tablice)};
         {this.renderRedirect()}
-        <p>Selektovan parking: {this.props.selectedParking.tablice}</p>
+        <label>Selektovan parking: </label>
+        <p>Vreme parkiranja: {this.props.selectedParking.vreme} sata</p>
+        <p>Registarski broj automobila: {this.props.selectedParking.tablice}</p>
+        <p>Vlasnik automobila: {this.props.selectedParking.vlasnik}</p>
         <button
+          id="povratak"
           onClick={() => {
             this.setRedirect();
           }}
         >
-          Vrati se nazad
+          Povratak na parking -->
         </button>
       </div>
     );
@@ -57,15 +61,12 @@ class ParkingDetails extends Component<Props, State> {
 
 function mapStateToProps(state: AppState) {
   return {
-    // prop name <= store slice
     selectedParking: state.selected
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
-  return {
-    // prop name => dispatch action
-  };
+  return {};
 }
 
 export default connect(

@@ -1,33 +1,67 @@
 {
-    "parkings": [{
-            "id": "1",
-            "popunjeno": false,
-            "tablice": "NI123AS"
-        },
-        {
-            "id": "2",
-            "popunjeno": true,
-            "tablice": "NI234AS"
-        },
-        {
-            "id": "3",
-            "popunjeno": true,
-            "tablice": "NI345AS"
-        },
-        {
-            "id": "4",
-            "popunjeno": false,
-            "tablice": "NI123AP"
-        },
-        {
-            "id": "5",
-            "popunjeno": false,
-            "tablice": "NI234AK"
-        },
-        {
-            "id": "6",
-            "popunjeno": true,
-            "tablice": "NI345AZ"
-        }
-    ]
+  "parkings": [
+    {
+      "id": "1",
+      "vreme": "2",
+      "popunjeno": true,
+      "tablice": "NI123AS",
+      "vlasnik": "Marko"
+    },
+    {
+      "id": "2",
+      "vreme": "3",
+      "popunjeno": true,
+      "tablice": "BG612MA",
+      "vlasnik": "Anja"
+    },
+    {
+      "id": "3",
+      "vreme": "1",
+      "popunjeno": true,
+      "tablice": "LE710TR",
+      "vlasnik": "Petar"
+    },
+    {
+      "id": "4",
+      "vreme": "4",
+      "popunjeno": true,
+      "tablice": "KG179AD",
+      "vlasnik": "Milena"
+    },
+    {
+      "id": "5",
+      "vreme": "2",
+      "popunjeno": true,
+      "tablice": "NI261",
+      "vlasnik": "Nikola"
+    },
+    {
+      "id": "6",
+      "vreme": "3",
+      "popunjeno": true,
+      "tablice": "BG717TN",
+      "vlasnik": "Aleksandar"
+    },
+    {
+      "id": "7",
+      "vreme": "1",
+      "popunjeno": true,
+      "tablice": "NI815MA",
+      "vlasnik": "Stefan"
+    },
+    {
+      "id": "8",
+      "vreme": "4",
+      "popunjeno": true,
+      "tablice": "PR592K",
+      "vlasnik": "Petar"
+    },
+    {
+      "id": "9",
+      "vreme": "3",
+      "popunjeno": true,
+      "tablice": "NI015RP",
+      "vlasnik": "Ivana"
+    }
+  ]
 }

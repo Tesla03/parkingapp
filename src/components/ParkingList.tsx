@@ -3,7 +3,7 @@ import { Parking } from "../models/Parking";
 import { connect } from "react-redux";
 import { AppState } from "../store";
 import MojeDugme from "./Button";
-import "../styles/Button.css";
+import "../styles/ParkingList.css";
 import { Action } from "redux";
 import {
   addParking,
@@ -31,6 +31,8 @@ interface State {
   tablice?: string;
   counter: number;
   redirect: boolean;
+  redirect2: boolean;
+  vlasnik: string;
 }
 
 const intialState = {
@@ -39,7 +41,9 @@ const intialState = {
   popunjeno: false,
   tablice: "",
   counter: 0,
-  redirect: false
+  redirect: false,
+  redirect2: false,
+  vlasnik: ""
 };
 
 class ParkingList extends Component<Props, State> {
@@ -64,15 +68,30 @@ class ParkingList extends Component<Props, State> {
     });
   };
 
+  setRedirect2 = () => {
+    this.setState({
+      redirect2: true
+    });
+  };
+
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to="/ParkingDetails" />;
     }
   };
 
+  renderRedirect2 = () => {
+    if (this.state.redirect2) {
+      return <Redirect to="/ListParkingDetails" />;
+    }
+  };
+
   componentDidMount() {
     if (this.props.parkings.length === 1) this.props.fetchParkings();
-    console.log(`${this.props.parkings.length}`);
+  }
+
+  componentWillReceiveProps() {
+    this.increaseCounter();
   }
 
   render() {
@@ -81,25 +100,18 @@ class ParkingList extends Component<Props, State> {
       return <h1>Svi parkinzi su prazni</h1>;
     }
     return (
-      <div>
+      <div id="glavni">
         {this.renderRedirect()}
+        {this.renderRedirect2()}
         <div id="unos">
           <div id="mesto">
-            <label>Vreme:</label>
+            <label>Vreme parkiranja:</label>
             <input
               type="text"
               name="vreme"
               onChange={e => this.setState({ vreme: e.target.value })}
             />
           </div>
-          {/* <div id="id">
-            <label>Id parking mesta:</label>
-            <input
-              type="text"
-              name="vreme"
-              onChange={e => this.setState({ vreme: e.target.value })}
-            />
-          </div> */}
           <div id="tablice">
             <label>Tablice:</label>
             <input
@@ -108,76 +120,92 @@ class ParkingList extends Component<Props, State> {
               onChange={e => this.setState({ tablice: e.target.value })}
             />
           </div>
+          <div id="vlasnik">
+            <label>Vlasnik:</label>
+            <input
+              type="text"
+              name="vlasnik"
+              onChange={e => this.setState({ vlasnik: e.target.value })}
+            />
+          </div>
+          <button
+            id="parkiraj"
+            onClick={() => {
+              const parking: Parking = {
+                id: this.state.id,
+                vreme: this.state.vreme,
+                popunjeno: true,
+                tablice: this.state.tablice,
+                vlasnik: this.state.vlasnik
+              };
+              this.props.addParking(parking);
+            }}
+          >
+            Parkiraj
+          </button>
         </div>
-        <button
-          id="parkiraj"
-          onClick={() => {
-            const parking: Parking = {
-              id: this.state.id,
-              vreme: this.state.vreme,
-              popunjeno: true,
-              tablice: this.state.tablice
-            };
-            this.props.addParking(parking);
-          }}
-        >
-          Parkiraj
-        </button>
-        <button
-          id="prazna-mesta"
-          onClick={() => {
-            this.increaseCounter();
-          }}
-        >
-          Prikazi stanje parkinga
-        </button>
-        <h3>
-          Zauzeta parking mesta:{this.state.counter} /{" "}
-          {this.props.parkings.length}
-        </h3>
+        <div id="stanje">
+          <h3>
+            Broj zauzetih parking mesta: {this.state.counter} /{" "}
+            {this.props.parkings.length}
+          </h3>
+        </div>
         <div id="tabela">
           {this.props.parkings.map((parking: Parking) => (
             <div id="dugmad">
-              <MojeDugme
-                tablice={parking.tablice}
-                parking={parking}
-                popunjeno={parking.popunjeno}
-              />
-              <button
-                id="Select"
-                onClick={() => {
-                  this.props.selectParking(parking);
-                  this.setRedirect();
-                }}
-              >
-                Select
-              </button>
-              <button
-                id="isparkiraj"
-                onClick={() => {
-                  this.props.deleteParking(parking.tablice);
-                }}
-              >
-                Isparkiraj
-              </button>
+              <li key={parking.id}>
+                <MojeDugme
+                  tablice={parking.tablice}
+                  parking={parking}
+                  popunjeno={parking.popunjeno}
+                />
+                <button
+                  id="Select"
+                  onClick={() => {
+                    this.props.selectParking(parking);
+                    this.setRedirect();
+                  }}
+                >
+                  Select
+                </button>
+                <button
+                  id="isparkiraj"
+                  onClick={() => {
+                    this.props.deleteParking(parking.tablice);
+                  }}
+                >
+                  Isparkiraj
+                </button>
+              </li>
             </div>
           ))}
         </div>
         <ParkingCounter />
-        <button
-          id="dodajPrazno"
-          onClick={() => {
-            const parking: Parking = {
-              id: `${this.props.parkings.length + 1}`,
-              vreme: "",
-              popunjeno: false,
-              tablice: ""
-            };
-            this.props.addEmpty(parking);
-          }}
-        >
-          Dodaj prazno parking mesto
-        </button>
+        <div id="redirect">
+          <button
+            id="dodajPrazno"
+            onClick={() => {
+              const parking: Parking = {
+                id: `${this.props.parkings.length}`,
+                vreme: "",
+                popunjeno: false,
+                tablice: "",
+                vlasnik: ""
+              };
+              this.props.addEmpty(parking);
+            }}
+          >
+            Dodaj prazno parking mesto
+          </button>
+          <button
+            id="prikaziDetalje"
+            onClick={() => {
+              this.setRedirect2();
+            }}
+          >
+            Prikazi detalje
+          </button>
+        </div>
       </div>
     );
   }
@@ -191,7 +219,6 @@ function mapStateToProps(state: AppState) {
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
   return {
-    //addParking: (parking: Parking) => dispatch(addParking(parking))
     fetchParkings: () => dispatch(fetchParkings()),
     addParking: (parking: Parking) => dispatch(addParking(parking)),
     deleteParking: (parkingId: string) => dispatch(deleteParking(parkingId)),

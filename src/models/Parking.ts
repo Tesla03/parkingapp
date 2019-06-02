@@ -3,4 +3,5 @@ export interface Parking {
   vreme: string;
   popunjeno: boolean;
   tablice: string;
+  vlasnik: string;
 }

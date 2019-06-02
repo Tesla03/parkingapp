@@ -20,7 +20,7 @@ class ParkingCounter extends Component<Props, State> {
     }
     return (
       <div>
-        <p>Ukupan broj parkinga: {this.props.parkings.length}</p>
+        <p>Ukupan broj parking mesta: {this.props.parkings.length}</p>
       </div>
     );
   }
@@ -28,15 +28,12 @@ class ParkingCounter extends Component<Props, State> {
 
 function mapStateToProps(state: AppState) {
   return {
-    // prop name <= store slice
     parkings: state.parkings
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
-  return {
-    // prop name => dispatch action
-  };
+  return {};
 }
 
 export default connect(

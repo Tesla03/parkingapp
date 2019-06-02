@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50) fixed;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+}
+
+#pocetak {
+  margin-left: 25%;
+  margin-top: 15%;
+  height: 100%;
+}
+
+#ulaz {
+  background-color: #44c767;
+  border-radius: 10px;
+  border: 2px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 17px;
+  text-decoration: none;
+  height: 35px;
+  width: 20%;
+  margin-left: 12%;
+}
+
+@media (max-width: 1300px) {
+  #ulaz {
+    width: 200px;
+  }
+}

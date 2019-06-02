@@ -5,6 +5,7 @@ import { Action } from "redux";
 import { connect } from "react-redux";
 import { Parking } from "../models/Parking";
 import { fetchParkings } from "../store/actions";
+import "../styles/Home.css";
 
 interface Props {
   parkings: Parking[];
@@ -21,15 +22,11 @@ class AppRoot extends Component<Props, State> {
   }
   render() {
     return (
-      <div>
-        <h2 />
-        <ul>
-          <li>
-            <button>
-              <Link to="/ParkingList">Idi na parking</Link>
-            </button>
-          </li>
-        </ul>
+      <div id="pocetak">
+        <h2> Dobrodošli na parking tržnog centra "Tesla" </h2>
+        <button id="ulaz">
+          <Link to="/ParkingList"> Ulaz na parking --></Link>
+        </button>
       </div>
     );
   }
@@ -37,8 +34,7 @@ class AppRoot extends Component<Props, State> {
 
 function mapStateToProps(state: AppState) {
   return {
-    //prop name <= store slice
-    parkings: state.parkings //parce state-a iz index.tsx se mapira na prop
+    parkings: state.parkings
   };
 }
 

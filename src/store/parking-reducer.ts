@@ -16,7 +16,8 @@ const initialState: Parking[] = [
     id: "0",
     vreme: "0",
     popunjeno: false,
-    tablice: "NI"
+    tablice: "",
+    vlasnik: ""
   }
 ];
 
@@ -28,19 +29,21 @@ export function parkingReducer(
     case ADD_PARKING: {
       const { parking } = action as AddParking;
       let pom = state.findIndex(parking => parking.popunjeno === false);
-      console.log("Vrednost pome je: " + pom);
       state.fill(parking, pom, pom + 1);
 
       return state.map((parking: Parking) => parking);
     }
     case DELETE_PARKING: {
+      //provera ako je prazno mesto da ne moze da se isparkira nego ostaje isto stanje
       const { parkingId } = action as DeleteParking;
-      return state.filter((parking: Parking) => parking.tablice !== parkingId);
+      if (parkingId !== "")
+        return state.filter(
+          (parking: Parking) => parking.tablice !== parkingId
+        );
+      else return state;
     }
     case ADD_PARKINGS: {
       const { parkings } = action as AddParkings;
-      //state.push(book);
-      //return state.map((book: Book) => book);
       return [...state, ...parkings];
     }
     case ADD_EMPTY: {
@@ -48,6 +51,6 @@ export function parkingReducer(
       return [...state, parking];
     }
     default:
-      return state; // uvek mora da ima default tip koji ce da vraca staro stanje
+      return state;
   }
 }

@@ -5,8 +5,6 @@ import { rootReducer } from "./store";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
 import { rootSaga } from "./store/sagas";
-import ParkingList from "./components/ParkingList";
-import ParkingCounter from "./components/ParkingCounter";
 import { createBrowserHistory } from "history";
 import { Routes } from "./routes/routes";
 import { Router } from "react-router";

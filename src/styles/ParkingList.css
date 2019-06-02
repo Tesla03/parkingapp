@@ -1,0 +1,125 @@
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 70px;
+  height: 40px;
+}
+
+input {
+  width: 136px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 2%;
+  padding: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+#glavni {
+  margin-left: 30%;
+}
+
+#tabela {
+  display: flex;
+  flex-direction: row;
+  width: 380px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: -5px;
+}
+
+#redirect {
+  display: flex;
+  flex-direction: column;
+}
+
+#Select,
+#isparkiraj {
+  width: 70px;
+  height: 20px;
+}
+
+#isparkiraj,
+#Select,
+#dodajPrazno,
+#parkiraj,
+#prikaziDetalje {
+  background: linear-gradient(to left, #0f2027, #2c5364);
+  background-color: #2dabf9;
+  border-radius: 5px;
+  border: 1px solid #0b0e07;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+#dodajPrazno,
+#prikaziDetalje {
+  width: 170px;
+  height: 30px;
+}
+
+#dugmad {
+  display: flex;
+  flex-direction: column;
+}
+
+#parking {
+  margin-top: 10px;
+}
+
+#unos {
+  display: flex;
+  flex-direction: column;
+}
+
+#mesto,
+#tablice,
+#vlasnik {
+  display: flex;
+  flex-direction: column;
+}
+
+#stanje {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#parkiraj {
+  margin-top: 5px;
+  width: 80px;
+  height: 25px;
+}
+
+#prazna-mesta {
+  width: 160px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  body {
+    margin-left: 10px;
+  }
+  #prikaziDetalje {
+    width: 100px;
+  }
+}
+@media (max-width: 440px) {
+  #tabela {
+    display: flex;
+    flex-direction: column;
+  }
+}
