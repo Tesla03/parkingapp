@@ -1,15 +1,6 @@
 import { Action } from "redux";
 import { Parking } from "../models/Parking";
-import {
-  ADD_PARKING,
-  AddParking,
-  ADD_PARKINGS,
-  AddParkings,
-  DELETE_PARKING,
-  DeleteParking,
-  ADD_EMPTY,
-  AddEmpty
-} from "./actions";
+import { ADD_PARKING, AddParking, ADD_PARKINGS, AddParkings, DELETE_PARKING, DeleteParking, ADD_EMPTY, AddEmpty } from "./actions";
 
 const initialState: Parking[] = [
   {
@@ -34,7 +25,6 @@ export function parkingReducer(
       return state.map((parking: Parking) => parking);
     }
     case DELETE_PARKING: {
-      //provera ako je prazno mesto da ne moze da se isparkira nego ostaje isto stanje
       const { parkingId } = action as DeleteParking;
       if (parkingId !== "")
         return state.filter(

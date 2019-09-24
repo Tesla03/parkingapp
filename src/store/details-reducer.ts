@@ -1,5 +1,4 @@
 import { Action } from "redux";
-import { AppState } from ".";
 import { Parking } from "../models/Parking";
 import { SELECT_PARKING, SelectParking } from "./actions";
 

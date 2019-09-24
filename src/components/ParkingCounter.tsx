@@ -11,9 +11,6 @@ interface Props {
 interface State {}
 
 class ParkingCounter extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
   render() {
     if (!this.props.parkings) {
       return <p>Ukupan broj parkinga: 0</p>;

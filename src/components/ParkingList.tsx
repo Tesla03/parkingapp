@@ -5,13 +5,7 @@ import { AppState } from "../store";
 import MojeDugme from "./Button";
 import "../styles/ParkingList.css";
 import { Action } from "redux";
-import {
-  addParking,
-  fetchParkings,
-  deleteParking,
-  selectParking,
-  addEmpty
-} from "../store/actions";
+import { addParking, fetchParkings, deleteParking, selectParking, addEmpty } from "../store/actions";
 import ParkingCounter from "./ParkingCounter";
 import { Redirect } from "react-router-dom";
 
@@ -35,7 +29,7 @@ interface State {
   vlasnik: string;
 }
 
-const intialState = {
+const initialState = {
   id: "",
   vreme: "",
   popunjeno: false,
@@ -47,19 +41,9 @@ const intialState = {
 };
 
 class ParkingList extends Component<Props, State> {
-  state = intialState;
+  state = initialState;
   constructor(props: Props) {
     super(props);
-  }
-
-  increaseCounter() {
-    let pom = 0;
-    this.props.parkings.map((parking: Parking) => {
-      if (parking.popunjeno) {
-        pom++;
-      }
-    });
-    this.setState({ counter: pom });
   }
 
   setRedirect = () => {
@@ -90,12 +74,7 @@ class ParkingList extends Component<Props, State> {
     if (this.props.parkings.length === 1) this.props.fetchParkings();
   }
 
-  componentWillReceiveProps() {
-    this.increaseCounter();
-  }
-
   render() {
-    let pom = true;
     if (!this.props.parkings) {
       return <h1>Svi parkinzi su prazni</h1>;
     }
@@ -144,12 +123,6 @@ class ParkingList extends Component<Props, State> {
             Parkiraj
           </button>
         </div>
-        <div id="stanje">
-          <h3>
-            Broj zauzetih parking mesta: {this.state.counter} /{" "}
-            {this.props.parkings.length}
-          </h3>
-        </div>
         <div id="tabela">
           {this.props.parkings.map((parking: Parking) => (
             <div id="dugmad">
@@ -172,6 +145,7 @@ class ParkingList extends Component<Props, State> {
                   id="isparkiraj"
                   onClick={() => {
                     this.props.deleteParking(parking.tablice);
+                    this.state.counter--;
                   }}
                 >
                   Isparkiraj
